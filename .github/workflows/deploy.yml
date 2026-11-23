@@ -63,7 +63,9 @@ jobs:
       # Both credentials reach Wrangler as environment variables only, scoped to
       # this single step. They are never echoed, written to a file or passed as
       # command-line arguments (which would show up in logs and process lists).
+      # Pushes to main build and validate only; publishing is manual on purpose.
       - name: Deploy to Cloudflare Pages
+        if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
