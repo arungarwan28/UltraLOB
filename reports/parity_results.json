@@ -1,0 +1,14 @@
+{
+  "test": "cpp_python_parity",
+  "events": 50000,
+  "seed": 7,
+  "workload": "balanced",
+  "checkpoints_compared": 5,
+  "levels_per_side": 5,
+  "trades_cpp": 35862,
+  "trades_python": 35862,
+  "active_orders_cpp": 289,
+  "mismatch_count": 0,
+  "passed": true,
+  "mismatches": []
+}

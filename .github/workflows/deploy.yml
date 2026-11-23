@@ -1,0 +1,68 @@
+name: deploy
+
+# Publishes the static console to Cloudflare Pages.
+#
+# Requires two repository secrets (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN   — token with "Cloudflare Pages: Edit" permission
+#   CLOUDFLARE_ACCOUNT_ID  — the account id from the Cloudflare dashboard
+# and a Pages project named `ultralob` (or change --project-name).
+#
+# Nothing is deployed by this repository as checked in; the workflow only runs
+# when this branch is pushed to main or started manually.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One production deployment at a time; a queued run supersedes an older one.
+concurrency:
+  group: pages-production
+  cancel-in-progress: false
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Emscripten
+        uses: mymindstorm/setup-emsdk@v14
+        with:
+          version: latest
+
+      - name: Build the real engine to WebAssembly
+        run: make wasm
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Build the console
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Verify the bundle is complete before publishing
+        run: |
+          set -euo pipefail
+          test -s web/dist/index.html
+          test -s web/dist/wasm/ultralob.wasm
+          ls web/dist/assets/engine.worker-*.js > /dev/null
+          ls web/dist/assets/index-*.js > /dev/null
+          ls web/dist/assets/index-*.css > /dev/null
+          grep -q 'application/wasm' web/dist/_headers
+          test "$(find web/dist -type f | wc -l)" -le 20000
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy web/dist --project-name=ultralob

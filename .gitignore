@@ -1,0 +1,34 @@
+# native build output
+build/
+build-cmake/
+*.o
+*.a
+cmake-build-*/
+
+# web
+web/node_modules/
+web/dist/
+web/.vite/
+
+# generated raw measurements (merged artefacts in reports/ are committed)
+reports/bench_raw_*.json
+reports/feed_sample.jsonl
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# secrets — never commit credentials; deployment reads them from the environment or CI secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.wrangler/
+*.pem
+
+# editors / os
+.DS_Store
+.idea/
+.vscode/

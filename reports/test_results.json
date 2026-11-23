@@ -1,0 +1,400 @@
+{
+  "suite": "google-test",
+  "generated_at": "2026-11-23T21:39:08Z",
+  "total": 59,
+  "failures": 0,
+  "passed": true,
+  "suites": [
+    {
+      "name": "SpscQueue",
+      "tests": 1,
+      "failures": 0,
+      "ms": 0.0,
+      "cases": [
+        {
+          "name": "PreservesFifoOrderAndReportsFull",
+          "status": "PASS",
+          "ms": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Backpressure",
+      "tests": 2,
+      "failures": 0,
+      "ms": 58.0,
+      "cases": [
+        {
+          "name": "RetryPolicyDeliversEveryEventWithoutLoss",
+          "status": "PASS",
+          "ms": 57.0
+        },
+        {
+          "name": "DropPolicyAccountsForEveryDiscardedEvent",
+          "status": "PASS",
+          "ms": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Chaos",
+      "tests": 6,
+      "failures": 0,
+      "ms": 59.0,
+      "cases": [
+        {
+          "name": "EveryScenarioPassesItsOwnExpectation",
+          "status": "PASS",
+          "ms": 34.0
+        },
+        {
+          "name": "SequenceGapHaltsWithoutCorruptingState",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "DuplicateEventIsDetectedOnce",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "ConsumerSlowdownLosesNothingUnderRetry",
+          "status": "PASS",
+          "ms": 2.0
+        },
+        {
+          "name": "SnapshotRecoveryResumesIdentically",
+          "status": "PASS",
+          "ms": 13.0
+        },
+        {
+          "name": "ReportsSerialiseToJson",
+          "status": "PASS",
+          "ms": 7.0
+        }
+      ]
+    },
+    {
+      "name": "Determinism",
+      "tests": 7,
+      "failures": 0,
+      "ms": 114.0,
+      "cases": [
+        {
+          "name": "SameStreamSameChecksumAndSnapshots",
+          "status": "PASS",
+          "ms": 18.0
+        },
+        {
+          "name": "RepeatedRunsOfTheSameSessionObjectAgree",
+          "status": "PASS",
+          "ms": 22.0
+        },
+        {
+          "name": "DifferentSeedsDiverge",
+          "status": "PASS",
+          "ms": 19.0
+        },
+        {
+          "name": "ChecksumIsSensitiveToSingleOrderChange",
+          "status": "PASS",
+          "ms": 7.0
+        },
+        {
+          "name": "ChecksumIsIndependentOfEventSequenceNumbers",
+          "status": "PASS",
+          "ms": 11.0
+        },
+        {
+          "name": "BookImageRoundTripRestoresTheSameChecksum",
+          "status": "PASS",
+          "ms": 18.0
+        },
+        {
+          "name": "TruncatedImageIsRejected",
+          "status": "PASS",
+          "ms": 15.0
+        }
+      ]
+    },
+    {
+      "name": "MatchingEngine",
+      "tests": 15,
+      "failures": 0,
+      "ms": 11.0,
+      "cases": [
+        {
+          "name": "MarketSellWalksTheBidStackInPriceOrder",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "NonCrossingLimitOrderRests",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "CrossingLimitExecutesThenRestsTheRemainder",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "PriceTimePriorityFillsTheOldestOrderFirst",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "PartialFillUpdatesRemainingAndLevelTotal",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "CancelRemovesLiquidityAndRejectsUnknownIds",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "ModifyQuantityDownKeepsQueuePriority",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "ModifyQuantityUpLosesQueuePriority",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "ModifyPriceChangeReentersAtTail",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "ModifyCanCrossTheBookAndExecute",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "MarketOrderIsImmediateOrCancel",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "InvalidOrdersAreRejectedWithoutSideEffects",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "EmptyBookMarketOrderIsCancelledNotResting",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "SpreadIsUndefinedWithOneSidedBook",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "MultipleLevelsTradeAcrossTheFullDepth",
+          "status": "PASS",
+          "ms": 0.0
+        }
+      ]
+    },
+    {
+      "name": "ObjectPool",
+      "tests": 2,
+      "failures": 0,
+      "ms": 0.0,
+      "cases": [
+        {
+          "name": "AcquireReleaseAndHighWaterMark",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "ExhaustionIsReportedNotThrown",
+          "status": "PASS",
+          "ms": 0.0
+        }
+      ]
+    },
+    {
+      "name": "Memory",
+      "tests": 2,
+      "failures": 0,
+      "ms": 6.0,
+      "cases": [
+        {
+          "name": "SteadyStateMatchingDoesNotTouchTheHeap",
+          "status": "PASS",
+          "ms": 2.0
+        },
+        {
+          "name": "OrderPoolReuseIsBounded",
+          "status": "PASS",
+          "ms": 3.0
+        }
+      ]
+    },
+    {
+      "name": "OrderBookLimits",
+      "tests": 3,
+      "failures": 0,
+      "ms": 7.0,
+      "cases": [
+        {
+          "name": "RejectedDuplicateIdLeavesNoPhantomLevel",
+          "status": "PASS",
+          "ms": 3.0
+        },
+        {
+          "name": "LevelTableFullRejectsWithoutMutatingTheBook",
+          "status": "PASS",
+          "ms": 3.0
+        },
+        {
+          "name": "RemoveErasesLevelAndReleasesSlot",
+          "status": "PASS",
+          "ms": 0.0
+        }
+      ]
+    },
+    {
+      "name": "OrderBook",
+      "tests": 6,
+      "failures": 0,
+      "ms": 4.0,
+      "cases": [
+        {
+          "name": "LevelsAreSortedBestPriceFirst",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "EmptyLevelIsErased",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "AggregateQuantityAtPrice",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "FindReturnsRestingOrderAndNullAfterCancel",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "InvariantsHoldUnderGeneratedFlow",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "IndexSurvivesHeavyChurn",
+          "status": "PASS",
+          "ms": 1.0
+        }
+      ]
+    },
+    {
+      "name": "OrderIndex",
+      "tests": 3,
+      "failures": 0,
+      "ms": 59.0,
+      "cases": [
+        {
+          "name": "RandomizedChurnMatchesUnorderedMap",
+          "status": "PASS",
+          "ms": 58.0
+        },
+        {
+          "name": "EraseAndReinsertSameIdsKeepsProbeChainsValid",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "RejectsInvalidAndDuplicateIds",
+          "status": "PASS",
+          "ms": 0.0
+        }
+      ]
+    },
+    {
+      "name": "SequenceGap",
+      "tests": 6,
+      "failures": 0,
+      "ms": 35.0,
+      "cases": [
+        {
+          "name": "DetectsFiftyInjectedGaps",
+          "status": "PASS",
+          "ms": 31.0
+        },
+        {
+          "name": "HaltingPolicyLeavesBookUntouched",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "BufferPolicyRecoversAndMatchesTheCleanRun",
+          "status": "PASS",
+          "ms": 1.0
+        },
+        {
+          "name": "DuplicateSequenceWithNewEventIdIsOutOfOrder",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "DuplicateEventIdIsRejectedAndNotApplied",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "SkipPolicyCountsButSuppressesAnomaly",
+          "status": "PASS",
+          "ms": 0.0
+        }
+      ]
+    },
+    {
+      "name": "WasBindings",
+      "tests": 6,
+      "failures": 0,
+      "ms": 54.0,
+      "cases": [
+        {
+          "name": "SubmitBookAndCountersRoundTrip",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "RejectionsAreReportedNotThrown",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "TradeWindowClampsAndDoesNotOverflow",
+          "status": "PASS",
+          "ms": 0.0
+        },
+        {
+          "name": "BenchmarkRunsTheEngineAndReportsLatency",
+          "status": "PASS",
+          "ms": 14.0
+        },
+        {
+          "name": "ReplayCompareIsAnIndependentSecondRun",
+          "status": "PASS",
+          "ms": 10.0
+        },
+        {
+          "name": "ChaosJsonIsParseableShape",
+          "status": "PASS",
+          "ms": 28.0
+        }
+      ]
+    }
+  ]
+}

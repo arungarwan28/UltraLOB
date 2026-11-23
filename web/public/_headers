@@ -1,0 +1,12 @@
+# Cloudflare Pages headers for the static console.
+# The Worker loader uses WebAssembly.instantiateStreaming when the MIME type is
+# correct (it falls back to a buffer compile otherwise), so this guarantees the
+# fast path regardless of host defaults.
+/wasm/*
+  Content-Type: application/wasm
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate

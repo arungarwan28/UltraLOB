@@ -1,0 +1,342 @@
+{
+  "generated_at": "2026-11-23T21:39:08Z",
+  "environment": {
+    "cpu": "AMD EPYC 7003 (Milan)",
+    "logical_cores": 2,
+    "os": "Ubuntu 24.04.5 LTS",
+    "compiler": "13.3.0",
+    "build_flags": "-std=c++20 -O2 -Wall -Wextra -Wpedantic -Iengine/include",
+    "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC), per-event samples include timer overhead",
+    "cpu_affinity": "not pinned (shared cloud runner)"
+  },
+  "engine_limits": {
+    "max_orders": 131072,
+    "max_levels_per_side": 4096,
+    "max_trade_log": 65536
+  },
+  "runs": [
+    {
+      "workload": "balanced",
+      "events": 10000000,
+      "seed": 2024,
+      "repeat": 1,
+      "elapsed_ms": 2570.71,
+      "events_per_second": 3889979,
+      "matching_events_per_second": 5163060,
+      "trades": 7703924,
+      "rejected": 642847,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 128,
+        "p99": 533,
+        "p99_9": 1037,
+        "p99_99": 16387,
+        "max": 16777246,
+        "mean": 152
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17944,
+      "active_orders": 89439,
+      "crc64": "13244320929033973079"
+    },
+    {
+      "workload": "balanced",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 1,
+      "elapsed_ms": 256.54,
+      "events_per_second": 3898008,
+      "matching_events_per_second": 5284314,
+      "trades": 743317,
+      "rejected": 61125,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 131,
+        "p99": 524,
+        "p99_9": 1028,
+        "p99_99": 16386,
+        "max": 131082,
+        "mean": 149
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17944,
+      "active_orders": 33929,
+      "crc64": "15894895422671397842"
+    },
+    {
+      "workload": "balanced",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 2,
+      "elapsed_ms": 259.51,
+      "events_per_second": 3853348,
+      "matching_events_per_second": 5121173,
+      "trades": 743317,
+      "rejected": 61125,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 92,
+        "p99": 515,
+        "p99_9": 537,
+        "p99_99": 16390,
+        "max": 16777241,
+        "mean": 149
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17988,
+      "active_orders": 33929,
+      "crc64": "15894895422671397842"
+    },
+    {
+      "workload": "balanced",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 3,
+      "elapsed_ms": 253.94,
+      "events_per_second": 3937992,
+      "matching_events_per_second": 5321834,
+      "trades": 743317,
+      "rejected": 61125,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 128,
+        "p99": 521,
+        "p99_9": 1027,
+        "p99_99": 16394,
+        "max": 131085,
+        "mean": 147
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17988,
+      "active_orders": 33929,
+      "crc64": "15894895422671397842"
+    },
+    {
+      "workload": "burst",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 1,
+      "elapsed_ms": 209.08,
+      "events_per_second": 4782964,
+      "matching_events_per_second": 7107629,
+      "trades": 695506,
+      "rejected": 200374,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 87,
+        "p99": 282,
+        "p99_9": 525,
+        "p99_99": 8202,
+        "max": 131099,
+        "mean": 115
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17948,
+      "active_orders": 2206,
+      "crc64": "12235289453827836497"
+    },
+    {
+      "workload": "burst",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 2,
+      "elapsed_ms": 217.95,
+      "events_per_second": 4588299,
+      "matching_events_per_second": 6664543,
+      "trades": 695506,
+      "rejected": 200374,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 87,
+        "p99": 284,
+        "p99_9": 1027,
+        "p99_99": 8204,
+        "max": 4194314,
+        "mean": 122
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17984,
+      "active_orders": 2206,
+      "crc64": "12235289453827836497"
+    },
+    {
+      "workload": "burst",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 3,
+      "elapsed_ms": 205.78,
+      "events_per_second": 4859477,
+      "matching_events_per_second": 7219618,
+      "trades": 695506,
+      "rejected": 200374,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 87,
+        "p99": 280,
+        "p99_9": 524,
+        "p99_99": 8207,
+        "max": 65544,
+        "mean": 113
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17984,
+      "active_orders": 2206,
+      "crc64": "12235289453827836497"
+    },
+    {
+      "workload": "cancel_heavy",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 1,
+      "elapsed_ms": 203.88,
+      "events_per_second": 4904816,
+      "matching_events_per_second": 7071149,
+      "trades": 678000,
+      "rejected": 84709,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 87,
+        "p99": 284,
+        "p99_9": 528,
+        "p99_99": 8203,
+        "max": 131076,
+        "mean": 115
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17948,
+      "active_orders": 13105,
+      "crc64": "3622855546803600707"
+    },
+    {
+      "workload": "cancel_heavy",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 2,
+      "elapsed_ms": 219.32,
+      "events_per_second": 4559482,
+      "matching_events_per_second": 6480831,
+      "trades": 678000,
+      "rejected": 84709,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 92,
+        "p99": 513,
+        "p99_9": 533,
+        "p99_99": 8212,
+        "max": 32781,
+        "mean": 124
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17988,
+      "active_orders": 13105,
+      "crc64": "3622855546803600707"
+    },
+    {
+      "workload": "cancel_heavy",
+      "events": 1000000,
+      "seed": 2024,
+      "repeat": 3,
+      "elapsed_ms": 208.16,
+      "events_per_second": 4804016,
+      "matching_events_per_second": 6890940,
+      "trades": 678000,
+      "rejected": 84709,
+      "duplicates": 0,
+      "gaps": 0,
+      "latency_ns": {
+        "p50": 92,
+        "p99": 285,
+        "p99_9": 528,
+        "p99_99": 8213,
+        "max": 65536,
+        "mean": 118
+      },
+      "heap_allocations": 0,
+      "allocated_bytes": 0,
+      "peak_rss_kb": 17988,
+      "active_orders": 13105,
+      "crc64": "3622855546803600707"
+    }
+  ],
+  "components": [
+    {
+      "name": "pool_acquire_release",
+      "ops": 2000000,
+      "ns_per_op": 3.94
+    },
+    {
+      "name": "order_index_insert_find_erase",
+      "ops": 1000000,
+      "ns_per_op": 66.39
+    },
+    {
+      "name": "submit_limit_round_trip",
+      "ops": 400000,
+      "ns_per_op": 36.62
+    }
+  ],
+  "summary": [
+    {
+      "workload": "balanced",
+      "events": 1000000,
+      "repeats": 3,
+      "median_events_per_second": 3898008,
+      "min_events_per_second": 3853348,
+      "max_events_per_second": 3937992,
+      "throughput_spread_pct": 2.17,
+      "median_p99_ns": 521,
+      "median_heap_allocations": 0
+    },
+    {
+      "workload": "balanced",
+      "events": 10000000,
+      "repeats": 1,
+      "median_events_per_second": 3889979,
+      "min_events_per_second": 3889979,
+      "max_events_per_second": 3889979,
+      "throughput_spread_pct": 0.0,
+      "median_p99_ns": 533,
+      "median_heap_allocations": 0
+    },
+    {
+      "workload": "burst",
+      "events": 1000000,
+      "repeats": 3,
+      "median_events_per_second": 4782964,
+      "min_events_per_second": 4588299,
+      "max_events_per_second": 4859477,
+      "throughput_spread_pct": 5.67,
+      "median_p99_ns": 282,
+      "median_heap_allocations": 0
+    },
+    {
+      "workload": "cancel_heavy",
+      "events": 1000000,
+      "repeats": 3,
+      "median_events_per_second": 4804016,
+      "min_events_per_second": 4559482,
+      "max_events_per_second": 4904816,
+      "throughput_spread_pct": 7.19,
+      "median_p99_ns": 285,
+      "median_heap_allocations": 0
+    }
+  ]
+}

@@ -1,0 +1,1144 @@
+{
+  "generated_at": "2026-11-23T21:39:27Z",
+  "environment": {
+    "cpu": "AMD EPYC 7003 (Milan)",
+    "logical_cores": 2,
+    "os": "Ubuntu 24.04.5 LTS",
+    "compiler": "13.3.0",
+    "notes": "shared runner, no CPU pinning, clock std::chrono::steady_clock"
+  },
+  "workloads": [
+    {
+      "workload": "balanced",
+      "events": 1000000,
+      "seed": 2024,
+      "optimized": {
+        "repeats": 3,
+        "median_events_per_second": 4702447,
+        "median_matching_events_per_second": 6024903,
+        "median_elapsed_ms": 212.66,
+        "median_p50_ns": 128,
+        "median_p99_ns": 516,
+        "median_p99_9_ns": 537,
+        "median_p99_99_ns": 8216,
+        "median_max_ns": 131093,
+        "median_mean_ns": 132,
+        "median_heap_allocations": 0,
+        "median_allocated_bytes": 0,
+        "median_peak_rss_kb": 72796,
+        "trades": 743317,
+        "rejected": 61125,
+        "active_orders": 33929
+      },
+      "baseline": {
+        "repeats": 3,
+        "median_events_per_second": 2969984,
+        "median_matching_events_per_second": 3470850,
+        "median_elapsed_ms": 336.7,
+        "median_p50_ns": 131,
+        "median_p99_ns": 2049,
+        "median_p99_9_ns": 4098,
+        "median_p99_99_ns": 16392,
+        "median_max_ns": 16777240,
+        "median_mean_ns": 218,
+        "median_heap_allocations": 1013860,
+        "median_allocated_bytes": 172503528,
+        "median_peak_rss_kb": 118900,
+        "trades": 743317,
+        "rejected": 61125,
+        "active_orders": 33929
+      },
+      "correctness": {
+        "shared_repeats": [
+          1,
+          2,
+          3
+        ],
+        "checks": {
+          "crc64": true,
+          "trade_count": true,
+          "rejected": true,
+          "active_orders": true,
+          "depth": true,
+          "trade_tail_crc": true,
+          "checkpoints": true
+        },
+        "identical": true,
+        "mismatches": []
+      },
+      "raw": {
+        "optimized": [
+          {
+            "workload": "balanced",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 1,
+            "elapsed_ms": 247.41,
+            "events_per_second": 4041865,
+            "matching_events_per_second": 4990019,
+            "latency_ns": {
+              "p50": 128,
+              "p99": 516,
+              "p99_9": 537,
+              "p99_99": 8216,
+              "max": 16777242,
+              "mean": 152
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72796,
+            "trades": 743317,
+            "rejected": 61125,
+            "active_orders": 33929,
+            "depth_bid": 867,
+            "depth_ask": 288,
+            "crc64": "15894895422671397842",
+            "trade_tail_crc": "14317136056535723516",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "12125468871101172000"
+              },
+              {
+                "events": 500000,
+                "crc64": "5808426174055320248"
+              },
+              {
+                "events": 1000000,
+                "crc64": "15894895422671397842"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:26Z"
+          },
+          {
+            "workload": "balanced",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 2,
+            "elapsed_ms": 212.66,
+            "events_per_second": 4702447,
+            "matching_events_per_second": 6024903,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 517,
+              "p99_9": 1027,
+              "p99_99": 8215,
+              "max": 131093,
+              "mean": 132
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72800,
+            "trades": 743317,
+            "rejected": 61125,
+            "active_orders": 33929,
+            "depth_bid": 867,
+            "depth_ask": 288,
+            "crc64": "15894895422671397842",
+            "trade_tail_crc": "14317136056535723516",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "12125468871101172000"
+              },
+              {
+                "events": 500000,
+                "crc64": "5808426174055320248"
+              },
+              {
+                "events": 1000000,
+                "crc64": "15894895422671397842"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:26Z"
+          },
+          {
+            "workload": "balanced",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 3,
+            "elapsed_ms": 209.71,
+            "events_per_second": 4768530,
+            "matching_events_per_second": 6131820,
+            "latency_ns": {
+              "p50": 128,
+              "p99": 515,
+              "p99_9": 537,
+              "p99_99": 8221,
+              "max": 131083,
+              "mean": 131
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72792,
+            "trades": 743317,
+            "rejected": 61125,
+            "active_orders": 33929,
+            "depth_bid": 867,
+            "depth_ask": 288,
+            "crc64": "15894895422671397842",
+            "trade_tail_crc": "14317136056535723516",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "12125468871101172000"
+              },
+              {
+                "events": 500000,
+                "crc64": "5808426174055320248"
+              },
+              {
+                "events": 1000000,
+                "crc64": "15894895422671397842"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:27Z"
+          }
+        ],
+        "baseline": [
+          {
+            "workload": "balanced",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 1,
+            "elapsed_ms": 346.51,
+            "events_per_second": 2885888,
+            "matching_events_per_second": 3344360,
+            "latency_ns": {
+              "p50": 131,
+              "p99": 2049,
+              "p99_9": 4101,
+              "p99_99": 16397,
+              "max": 16777246,
+              "mean": 218
+            },
+            "heap_allocations": 1013860,
+            "allocated_bytes": 172503528,
+            "peak_rss_kb": 118900,
+            "trades": 743317,
+            "rejected": 61125,
+            "active_orders": 33929,
+            "depth_bid": 867,
+            "depth_ask": 288,
+            "crc64": "15894895422671397842",
+            "trade_tail_crc": "14317136056535723516",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "12125468871101172000"
+              },
+              {
+                "events": 500000,
+                "crc64": "5808426174055320248"
+              },
+              {
+                "events": 1000000,
+                "crc64": "15894895422671397842"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:27Z"
+          },
+          {
+            "workload": "balanced",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 2,
+            "elapsed_ms": 289.28,
+            "events_per_second": 3456864,
+            "matching_events_per_second": 4133918,
+            "latency_ns": {
+              "p50": 131,
+              "p99": 2048,
+              "p99_9": 2079,
+              "p99_99": 16388,
+              "max": 16777226,
+              "mean": 194
+            },
+            "heap_allocations": 1013860,
+            "allocated_bytes": 172503528,
+            "peak_rss_kb": 118904,
+            "trades": 743317,
+            "rejected": 61125,
+            "active_orders": 33929,
+            "depth_bid": 867,
+            "depth_ask": 288,
+            "crc64": "15894895422671397842",
+            "trade_tail_crc": "14317136056535723516",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "12125468871101172000"
+              },
+              {
+                "events": 500000,
+                "crc64": "5808426174055320248"
+              },
+              {
+                "events": 1000000,
+                "crc64": "15894895422671397842"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:27Z"
+          },
+          {
+            "workload": "balanced",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 3,
+            "elapsed_ms": 336.7,
+            "events_per_second": 2969984,
+            "matching_events_per_second": 3470850,
+            "latency_ns": {
+              "p50": 131,
+              "p99": 2049,
+              "p99_9": 4098,
+              "p99_99": 16392,
+              "max": 16777240,
+              "mean": 222
+            },
+            "heap_allocations": 1013860,
+            "allocated_bytes": 172503528,
+            "peak_rss_kb": 118884,
+            "trades": 743317,
+            "rejected": 61125,
+            "active_orders": 33929,
+            "depth_bid": 867,
+            "depth_ask": 288,
+            "crc64": "15894895422671397842",
+            "trade_tail_crc": "14317136056535723516",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "12125468871101172000"
+              },
+              {
+                "events": 500000,
+                "crc64": "5808426174055320248"
+              },
+              {
+                "events": 1000000,
+                "crc64": "15894895422671397842"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:28Z"
+          }
+        ]
+      }
+    },
+    {
+      "workload": "burst",
+      "events": 1000000,
+      "seed": 2024,
+      "optimized": {
+        "repeats": 3,
+        "median_events_per_second": 4705217,
+        "median_matching_events_per_second": 5887416,
+        "median_elapsed_ms": 212.53,
+        "median_p50_ns": 128,
+        "median_p99_ns": 513,
+        "median_p99_9_ns": 530,
+        "median_p99_99_ns": 8220,
+        "median_max_ns": 131089,
+        "median_mean_ns": 136,
+        "median_heap_allocations": 0,
+        "median_allocated_bytes": 0,
+        "median_peak_rss_kb": 72800,
+        "trades": 695506,
+        "rejected": 200374,
+        "active_orders": 2206
+      },
+      "baseline": {
+        "repeats": 3,
+        "median_events_per_second": 4104311,
+        "median_matching_events_per_second": 4937587,
+        "median_elapsed_ms": 243.65,
+        "median_p50_ns": 92,
+        "median_p99_ns": 521,
+        "median_p99_9_ns": 2074,
+        "median_p99_99_ns": 16385,
+        "median_max_ns": 16777225,
+        "median_mean_ns": 166,
+        "median_heap_allocations": 881876,
+        "median_allocated_bytes": 167738392,
+        "median_peak_rss_kb": 115720,
+        "trades": 695506,
+        "rejected": 200374,
+        "active_orders": 2206
+      },
+      "correctness": {
+        "shared_repeats": [
+          1,
+          2,
+          3
+        ],
+        "checks": {
+          "crc64": true,
+          "trade_count": true,
+          "rejected": true,
+          "active_orders": true,
+          "depth": true,
+          "trade_tail_crc": true,
+          "checkpoints": true
+        },
+        "identical": true,
+        "mismatches": []
+      },
+      "raw": {
+        "optimized": [
+          {
+            "workload": "burst",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 1,
+            "elapsed_ms": 198.25,
+            "events_per_second": 5044101,
+            "matching_events_per_second": 6401490,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 285,
+              "p99_9": 525,
+              "p99_99": 8220,
+              "max": 65565,
+              "mean": 127
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72748,
+            "trades": 695506,
+            "rejected": 200374,
+            "active_orders": 2206,
+            "depth_bid": 304,
+            "depth_ask": 374,
+            "crc64": "12235289453827836497",
+            "trade_tail_crc": "6256269574959896600",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "15070347371815870995"
+              },
+              {
+                "events": 500000,
+                "crc64": "15920469311553389480"
+              },
+              {
+                "events": 1000000,
+                "crc64": "12235289453827836497"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:30Z"
+          },
+          {
+            "workload": "burst",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 2,
+            "elapsed_ms": 212.53,
+            "events_per_second": 4705217,
+            "matching_events_per_second": 5887416,
+            "latency_ns": {
+              "p50": 128,
+              "p99": 513,
+              "p99_9": 530,
+              "p99_99": 16385,
+              "max": 262167,
+              "mean": 136
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72804,
+            "trades": 695506,
+            "rejected": 200374,
+            "active_orders": 2206,
+            "depth_bid": 304,
+            "depth_ask": 374,
+            "crc64": "12235289453827836497",
+            "trade_tail_crc": "6256269574959896600",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "15070347371815870995"
+              },
+              {
+                "events": 500000,
+                "crc64": "15920469311553389480"
+              },
+              {
+                "events": 1000000,
+                "crc64": "12235289453827836497"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:31Z"
+          },
+          {
+            "workload": "burst",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 3,
+            "elapsed_ms": 216.75,
+            "events_per_second": 4613595,
+            "matching_events_per_second": 5724343,
+            "latency_ns": {
+              "p50": 128,
+              "p99": 515,
+              "p99_9": 531,
+              "p99_99": 8217,
+              "max": 131089,
+              "mean": 139
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72800,
+            "trades": 695506,
+            "rejected": 200374,
+            "active_orders": 2206,
+            "depth_bid": 304,
+            "depth_ask": 374,
+            "crc64": "12235289453827836497",
+            "trade_tail_crc": "6256269574959896600",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "15070347371815870995"
+              },
+              {
+                "events": 500000,
+                "crc64": "15920469311553389480"
+              },
+              {
+                "events": 1000000,
+                "crc64": "12235289453827836497"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:31Z"
+          }
+        ],
+        "baseline": [
+          {
+            "workload": "burst",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 1,
+            "elapsed_ms": 243.65,
+            "events_per_second": 4104311,
+            "matching_events_per_second": 4937587,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 521,
+              "p99_9": 2074,
+              "p99_99": 16391,
+              "max": 16777224,
+              "mean": 166
+            },
+            "heap_allocations": 881876,
+            "allocated_bytes": 167738392,
+            "peak_rss_kb": 115712,
+            "trades": 695506,
+            "rejected": 200374,
+            "active_orders": 2206,
+            "depth_bid": 304,
+            "depth_ask": 374,
+            "crc64": "12235289453827836497",
+            "trade_tail_crc": "6256269574959896600",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "15070347371815870995"
+              },
+              {
+                "events": 500000,
+                "crc64": "15920469311553389480"
+              },
+              {
+                "events": 1000000,
+                "crc64": "12235289453827836497"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:31Z"
+          },
+          {
+            "workload": "burst",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 2,
+            "elapsed_ms": 275.16,
+            "events_per_second": 3634263,
+            "matching_events_per_second": 4268073,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 522,
+              "p99_9": 2076,
+              "p99_99": 16385,
+              "max": 16777244,
+              "mean": 182
+            },
+            "heap_allocations": 881876,
+            "allocated_bytes": 167738392,
+            "peak_rss_kb": 115736,
+            "trades": 695506,
+            "rejected": 200374,
+            "active_orders": 2206,
+            "depth_bid": 304,
+            "depth_ask": 374,
+            "crc64": "12235289453827836497",
+            "trade_tail_crc": "6256269574959896600",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "15070347371815870995"
+              },
+              {
+                "events": 500000,
+                "crc64": "15920469311553389480"
+              },
+              {
+                "events": 1000000,
+                "crc64": "12235289453827836497"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:32Z"
+          },
+          {
+            "workload": "burst",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 3,
+            "elapsed_ms": 240.92,
+            "events_per_second": 4150707,
+            "matching_events_per_second": 4983890,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 518,
+              "p99_9": 2064,
+              "p99_99": 8222,
+              "max": 16777225,
+              "mean": 165
+            },
+            "heap_allocations": 881876,
+            "allocated_bytes": 167738392,
+            "peak_rss_kb": 115720,
+            "trades": 695506,
+            "rejected": 200374,
+            "active_orders": 2206,
+            "depth_bid": 304,
+            "depth_ask": 374,
+            "crc64": "12235289453827836497",
+            "trade_tail_crc": "6256269574959896600",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "15070347371815870995"
+              },
+              {
+                "events": 500000,
+                "crc64": "15920469311553389480"
+              },
+              {
+                "events": 1000000,
+                "crc64": "12235289453827836497"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:32Z"
+          }
+        ]
+      }
+    },
+    {
+      "workload": "cancel_heavy",
+      "events": 1000000,
+      "seed": 2024,
+      "optimized": {
+        "repeats": 3,
+        "median_events_per_second": 5012416,
+        "median_matching_events_per_second": 6407775,
+        "median_elapsed_ms": 199.5,
+        "median_p50_ns": 92,
+        "median_p99_ns": 286,
+        "median_p99_9_ns": 532,
+        "median_p99_99_ns": 8211,
+        "median_max_ns": 131085,
+        "median_mean_ns": 125,
+        "median_heap_allocations": 0,
+        "median_allocated_bytes": 0,
+        "median_peak_rss_kb": 72792,
+        "trades": 678000,
+        "rejected": 84709,
+        "active_orders": 13105
+      },
+      "baseline": {
+        "repeats": 3,
+        "median_events_per_second": 3669724,
+        "median_matching_events_per_second": 4481460,
+        "median_elapsed_ms": 272.5,
+        "median_p50_ns": 128,
+        "median_p99_ns": 537,
+        "median_p99_9_ns": 2077,
+        "median_p99_99_ns": 16385,
+        "median_max_ns": 16777234,
+        "median_mean_ns": 177,
+        "median_heap_allocations": 1034732,
+        "median_allocated_bytes": 174062088,
+        "median_peak_rss_kb": 117104,
+        "trades": 678000,
+        "rejected": 84709,
+        "active_orders": 13105
+      },
+      "correctness": {
+        "shared_repeats": [
+          1,
+          2,
+          3
+        ],
+        "checks": {
+          "crc64": true,
+          "trade_count": true,
+          "rejected": true,
+          "active_orders": true,
+          "depth": true,
+          "trade_tail_crc": true,
+          "checkpoints": true
+        },
+        "identical": true,
+        "mismatches": []
+      },
+      "raw": {
+        "optimized": [
+          {
+            "workload": "cancel_heavy",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 1,
+            "elapsed_ms": 199.5,
+            "events_per_second": 5012416,
+            "matching_events_per_second": 6407775,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 287,
+              "p99_9": 536,
+              "p99_99": 8209,
+              "max": 131085,
+              "mean": 125
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72776,
+            "trades": 678000,
+            "rejected": 84709,
+            "active_orders": 13105,
+            "depth_bid": 432,
+            "depth_ask": 562,
+            "crc64": "3622855546803600707",
+            "trade_tail_crc": "6689269425055100770",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "677879871251682613"
+              },
+              {
+                "events": 500000,
+                "crc64": "10700369293745238115"
+              },
+              {
+                "events": 1000000,
+                "crc64": "3622855546803600707"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:28Z"
+          },
+          {
+            "workload": "cancel_heavy",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 2,
+            "elapsed_ms": 194.15,
+            "events_per_second": 5150684,
+            "matching_events_per_second": 6578381,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 286,
+              "p99_9": 528,
+              "p99_99": 8211,
+              "max": 131082,
+              "mean": 123
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72792,
+            "trades": 678000,
+            "rejected": 84709,
+            "active_orders": 13105,
+            "depth_bid": 432,
+            "depth_ask": 562,
+            "crc64": "3622855546803600707",
+            "trade_tail_crc": "6689269425055100770",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "677879871251682613"
+              },
+              {
+                "events": 500000,
+                "crc64": "10700369293745238115"
+              },
+              {
+                "events": 1000000,
+                "crc64": "3622855546803600707"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:28Z"
+          },
+          {
+            "workload": "cancel_heavy",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 3,
+            "elapsed_ms": 223.66,
+            "events_per_second": 4471009,
+            "matching_events_per_second": 5518280,
+            "latency_ns": {
+              "p50": 92,
+              "p99": 286,
+              "p99_9": 532,
+              "p99_99": 8215,
+              "max": 16777240,
+              "mean": 139
+            },
+            "heap_allocations": 0,
+            "allocated_bytes": 0,
+            "peak_rss_kb": 72800,
+            "trades": 678000,
+            "rejected": 84709,
+            "active_orders": 13105,
+            "depth_bid": 432,
+            "depth_ask": 562,
+            "crc64": "3622855546803600707",
+            "trade_tail_crc": "6689269425055100770",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "677879871251682613"
+              },
+              {
+                "events": 500000,
+                "crc64": "10700369293745238115"
+              },
+              {
+                "events": 1000000,
+                "crc64": "3622855546803600707"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:29Z"
+          }
+        ],
+        "baseline": [
+          {
+            "workload": "cancel_heavy",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 1,
+            "elapsed_ms": 272.5,
+            "events_per_second": 3669724,
+            "matching_events_per_second": 4343359,
+            "latency_ns": {
+              "p50": 128,
+              "p99": 536,
+              "p99_9": 2076,
+              "p99_99": 16385,
+              "max": 16777246,
+              "mean": 177
+            },
+            "heap_allocations": 1034732,
+            "allocated_bytes": 174062088,
+            "peak_rss_kb": 117104,
+            "trades": 678000,
+            "rejected": 84709,
+            "active_orders": 13105,
+            "depth_bid": 432,
+            "depth_ask": 562,
+            "crc64": "3622855546803600707",
+            "trade_tail_crc": "6689269425055100770",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "677879871251682613"
+              },
+              {
+                "events": 500000,
+                "crc64": "10700369293745238115"
+              },
+              {
+                "events": 1000000,
+                "crc64": "3622855546803600707"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:29Z"
+          },
+          {
+            "workload": "cancel_heavy",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 2,
+            "elapsed_ms": 265.71,
+            "events_per_second": 3763516,
+            "matching_events_per_second": 4481460,
+            "latency_ns": {
+              "p50": 128,
+              "p99": 537,
+              "p99_9": 2077,
+              "p99_99": 16394,
+              "max": 16777234,
+              "mean": 177
+            },
+            "heap_allocations": 1034732,
+            "allocated_bytes": 174062088,
+            "peak_rss_kb": 117104,
+            "trades": 678000,
+            "rejected": 84709,
+            "active_orders": 13105,
+            "depth_bid": 432,
+            "depth_ask": 562,
+            "crc64": "3622855546803600707",
+            "trade_tail_crc": "6689269425055100770",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "677879871251682613"
+              },
+              {
+                "events": 500000,
+                "crc64": "10700369293745238115"
+              },
+              {
+                "events": 1000000,
+                "crc64": "3622855546803600707"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:30Z"
+          },
+          {
+            "workload": "cancel_heavy",
+            "events": 1000000,
+            "seed": 2024,
+            "repeat": 3,
+            "elapsed_ms": 291.24,
+            "events_per_second": 3433617,
+            "matching_events_per_second": 4685002,
+            "latency_ns": {
+              "p50": 128,
+              "p99": 1033,
+              "p99_9": 2077,
+              "p99_99": 8220,
+              "max": 16777224,
+              "mean": 174
+            },
+            "heap_allocations": 1034732,
+            "allocated_bytes": 174062088,
+            "peak_rss_kb": 117104,
+            "trades": 678000,
+            "rejected": 84709,
+            "active_orders": 13105,
+            "depth_bid": 432,
+            "depth_ask": 562,
+            "crc64": "3622855546803600707",
+            "trade_tail_crc": "6689269425055100770",
+            "checkpoints": [
+              {
+                "events": 250000,
+                "crc64": "677879871251682613"
+              },
+              {
+                "events": 500000,
+                "crc64": "10700369293745238115"
+              },
+              {
+                "events": 1000000,
+                "crc64": "3622855546803600707"
+              }
+            ],
+            "environment": {
+              "cpu": "AMD EPYC 7003 (Milan)",
+              "logical_cores": 2,
+              "os": "Ubuntu 24.04.5 LTS",
+              "compiler": "13.3.0",
+              "clock": "std::chrono::steady_clock (CLOCK_MONOTONIC)",
+              "cpu_affinity": "not pinned (shared cloud runner)",
+              "warmup_events": 20000,
+              "peak_rss_scope": "whole process: includes the pre-generated feed and the implementation's live heap"
+            },
+            "generated_at": "2026-11-23T21:39:30Z"
+          }
+        ]
+      }
+    }
+  ],
+  "all_identical": true
+}

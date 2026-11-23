@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="59" failures="0" disabled="0" errors="0" time="0.562" timestamp="2026-11-23T21:43:35.332" name="AllTests">
+  <testsuite name="SpscQueue" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-11-23T21:43:35.332">
+    <testcase name="PreservesFifoOrderAndReportsFull" file="tests/backpressure_test.cpp" line="33" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.332" classname="SpscQueue" />
+  </testsuite>
+  <testsuite name="Backpressure" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.104" timestamp="2026-11-23T21:43:35.332">
+    <testcase name="RetryPolicyDeliversEveryEventWithoutLoss" file="tests/backpressure_test.cpp" line="51" status="run" result="completed" time="0.104" timestamp="2026-11-23T21:43:35.332" classname="Backpressure" />
+    <testcase name="DropPolicyAccountsForEveryDiscardedEvent" file="tests/backpressure_test.cpp" line="101" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.436" classname="Backpressure" />
+  </testsuite>
+  <testsuite name="Chaos" tests="6" failures="0" disabled="0" skipped="0" errors="0" time="0.104" timestamp="2026-11-23T21:43:35.436">
+    <testcase name="EveryScenarioPassesItsOwnExpectation" file="tests/chaos_test.cpp" line="12" status="run" result="completed" time="0.044" timestamp="2026-11-23T21:43:35.436" classname="Chaos" />
+    <testcase name="SequenceGapHaltsWithoutCorruptingState" file="tests/chaos_test.cpp" line="22" status="run" result="completed" time="0.001" timestamp="2026-11-23T21:43:35.481" classname="Chaos" />
+    <testcase name="DuplicateEventIsDetectedOnce" file="tests/chaos_test.cpp" line="29" status="run" result="completed" time="0.001" timestamp="2026-11-23T21:43:35.483" classname="Chaos" />
+    <testcase name="ConsumerSlowdownLosesNothingUnderRetry" file="tests/chaos_test.cpp" line="36" status="run" result="completed" time="0.003" timestamp="2026-11-23T21:43:35.484" classname="Chaos" />
+    <testcase name="SnapshotRecoveryResumesIdentically" file="tests/chaos_test.cpp" line="44" status="run" result="completed" time="0.016" timestamp="2026-11-23T21:43:35.488" classname="Chaos" />
+    <testcase name="ReportsSerialiseToJson" file="tests/chaos_test.cpp" line="50" status="run" result="completed" time="0.036" timestamp="2026-11-23T21:43:35.504" classname="Chaos" />
+  </testsuite>
+  <testsuite name="Determinism" tests="7" failures="0" disabled="0" skipped="0" errors="0" time="0.114" timestamp="2026-11-23T21:43:35.541">
+    <testcase name="SameStreamSameChecksumAndSnapshots" file="tests/determinism_test.cpp" line="22" status="run" result="completed" time="0.017" timestamp="2026-11-23T21:43:35.541" classname="Determinism" />
+    <testcase name="RepeatedRunsOfTheSameSessionObjectAgree" file="tests/determinism_test.cpp" line="48" status="run" result="completed" time="0.022" timestamp="2026-11-23T21:43:35.558" classname="Determinism" />
+    <testcase name="DifferentSeedsDiverge" file="tests/determinism_test.cpp" line="74" status="run" result="completed" time="0.019" timestamp="2026-11-23T21:43:35.580" classname="Determinism" />
+    <testcase name="ChecksumIsSensitiveToSingleOrderChange" file="tests/determinism_test.cpp" line="84" status="run" result="completed" time="0.007" timestamp="2026-11-23T21:43:35.600" classname="Determinism" />
+    <testcase name="ChecksumIsIndependentOfEventSequenceNumbers" file="tests/determinism_test.cpp" line="95" status="run" result="completed" time="0.011" timestamp="2026-11-23T21:43:35.608" classname="Determinism" />
+    <testcase name="BookImageRoundTripRestoresTheSameChecksum" file="tests/determinism_test.cpp" line="110" status="run" result="completed" time="0.019" timestamp="2026-11-23T21:43:35.620" classname="Determinism" />
+    <testcase name="TruncatedImageIsRejected" file="tests/determinism_test.cpp" line="136" status="run" result="completed" time="0.016" timestamp="2026-11-23T21:43:35.639" classname="Determinism" />
+  </testsuite>
+  <testsuite name="MatchingEngine" tests="15" failures="0" disabled="0" skipped="0" errors="0" time="0.009" timestamp="2026-11-23T21:43:35.656">
+    <testcase name="MarketSellWalksTheBidStackInPriceOrder" file="tests/matching_test.cpp" line="25" status="run" result="completed" time="0.001" timestamp="2026-11-23T21:43:35.656" classname="MatchingEngine" />
+    <testcase name="NonCrossingLimitOrderRests" file="tests/matching_test.cpp" line="54" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.657" classname="MatchingEngine" />
+    <testcase name="CrossingLimitExecutesThenRestsTheRemainder" file="tests/matching_test.cpp" line="70" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.657" classname="MatchingEngine" />
+    <testcase name="PriceTimePriorityFillsTheOldestOrderFirst" file="tests/matching_test.cpp" line="84" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.658" classname="MatchingEngine" />
+    <testcase name="PartialFillUpdatesRemainingAndLevelTotal" file="tests/matching_test.cpp" line="105" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.658" classname="MatchingEngine" />
+    <testcase name="CancelRemovesLiquidityAndRejectsUnknownIds" file="tests/matching_test.cpp" line="119" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.659" classname="MatchingEngine" />
+    <testcase name="ModifyQuantityDownKeepsQueuePriority" file="tests/matching_test.cpp" line="135" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.659" classname="MatchingEngine" />
+    <testcase name="ModifyQuantityUpLosesQueuePriority" file="tests/matching_test.cpp" line="149" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.660" classname="MatchingEngine" />
+    <testcase name="ModifyPriceChangeReentersAtTail" file="tests/matching_test.cpp" line="161" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.660" classname="MatchingEngine" />
+    <testcase name="ModifyCanCrossTheBookAndExecute" file="tests/matching_test.cpp" line="179" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.661" classname="MatchingEngine" />
+    <testcase name="MarketOrderIsImmediateOrCancel" file="tests/matching_test.cpp" line="195" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.661" classname="MatchingEngine" />
+    <testcase name="InvalidOrdersAreRejectedWithoutSideEffects" file="tests/matching_test.cpp" line="210" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.662" classname="MatchingEngine" />
+    <testcase name="EmptyBookMarketOrderIsCancelledNotResting" file="tests/matching_test.cpp" line="233" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.663" classname="MatchingEngine" />
+    <testcase name="SpreadIsUndefinedWithOneSidedBook" file="tests/matching_test.cpp" line="242" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.663" classname="MatchingEngine" />
+    <testcase name="MultipleLevelsTradeAcrossTheFullDepth" file="tests/matching_test.cpp" line="250" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.664" classname="MatchingEngine" />
+  </testsuite>
+  <testsuite name="ObjectPool" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0." timestamp="2026-11-23T21:43:35.665">
+    <testcase name="AcquireReleaseAndHighWaterMark" file="tests/memory_pool_test.cpp" line="17" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.665" classname="ObjectPool" />
+    <testcase name="ExhaustionIsReportedNotThrown" file="tests/memory_pool_test.cpp" line="46" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.665" classname="ObjectPool" />
+  </testsuite>
+  <testsuite name="Memory" tests="2" failures="0" disabled="0" skipped="0" errors="0" time="0.007" timestamp="2026-11-23T21:43:35.665">
+    <testcase name="SteadyStateMatchingDoesNotTouchTheHeap" file="tests/memory_pool_test.cpp" line="55" status="run" result="completed" time="0.003" timestamp="2026-11-23T21:43:35.665" classname="Memory" />
+    <testcase name="OrderPoolReuseIsBounded" file="tests/memory_pool_test.cpp" line="76" status="run" result="completed" time="0.003" timestamp="2026-11-23T21:43:35.668" classname="Memory" />
+  </testsuite>
+  <testsuite name="OrderBookLimits" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0.012" timestamp="2026-11-23T21:43:35.672">
+    <testcase name="RejectedDuplicateIdLeavesNoPhantomLevel" file="tests/order_book_limits_test.cpp" line="35" status="run" result="completed" time="0.007" timestamp="2026-11-23T21:43:35.672" classname="OrderBookLimits" />
+    <testcase name="LevelTableFullRejectsWithoutMutatingTheBook" file="tests/order_book_limits_test.cpp" line="64" status="run" result="completed" time="0.003" timestamp="2026-11-23T21:43:35.680" classname="OrderBookLimits" />
+    <testcase name="RemoveErasesLevelAndReleasesSlot" file="tests/order_book_limits_test.cpp" line="83" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.684" classname="OrderBookLimits" />
+  </testsuite>
+  <testsuite name="OrderBook" tests="6" failures="0" disabled="0" skipped="0" errors="0" time="0.004" timestamp="2026-11-23T21:43:35.685">
+    <testcase name="LevelsAreSortedBestPriceFirst" file="tests/order_book_test.cpp" line="61" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.685" classname="OrderBook" />
+    <testcase name="EmptyLevelIsErased" file="tests/order_book_test.cpp" line="82" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.685" classname="OrderBook" />
+    <testcase name="AggregateQuantityAtPrice" file="tests/order_book_test.cpp" line="94" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.686" classname="OrderBook" />
+    <testcase name="FindReturnsRestingOrderAndNullAfterCancel" file="tests/order_book_test.cpp" line="105" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.686" classname="OrderBook" />
+    <testcase name="InvariantsHoldUnderGeneratedFlow" file="tests/order_book_test.cpp" line="118" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.687" classname="OrderBook" />
+    <testcase name="IndexSurvivesHeavyChurn" file="tests/order_book_test.cpp" line="149" status="run" result="completed" time="0.001" timestamp="2026-11-23T21:43:35.688" classname="OrderBook" />
+  </testsuite>
+  <testsuite name="OrderIndex" tests="3" failures="0" disabled="0" skipped="0" errors="0" time="0.066" timestamp="2026-11-23T21:43:35.689">
+    <testcase name="RandomizedChurnMatchesUnorderedMap" file="tests/order_index_test.cpp" line="27" status="run" result="completed" time="0.066" timestamp="2026-11-23T21:43:35.689" classname="OrderIndex" />
+    <testcase name="EraseAndReinsertSameIdsKeepsProbeChainsValid" file="tests/order_index_test.cpp" line="67" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.756" classname="OrderIndex" />
+    <testcase name="RejectsInvalidAndDuplicateIds" file="tests/order_index_test.cpp" line="98" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.756" classname="OrderIndex" />
+  </testsuite>
+  <testsuite name="SequenceGap" tests="6" failures="0" disabled="0" skipped="0" errors="0" time="0.03" timestamp="2026-11-23T21:43:35.756">
+    <testcase name="DetectsFiftyInjectedGaps" file="tests/sequence_gap_test.cpp" line="38" status="run" result="completed" time="0.026" timestamp="2026-11-23T21:43:35.756" classname="SequenceGap" />
+    <testcase name="HaltingPolicyLeavesBookUntouched" file="tests/sequence_gap_test.cpp" line="70" status="run" result="completed" time="0.001" timestamp="2026-11-23T21:43:35.783" classname="SequenceGap" />
+    <testcase name="BufferPolicyRecoversAndMatchesTheCleanRun" file="tests/sequence_gap_test.cpp" line="88" status="run" result="completed" time="0.001" timestamp="2026-11-23T21:43:35.784" classname="SequenceGap" />
+    <testcase name="DuplicateSequenceWithNewEventIdIsOutOfOrder" file="tests/sequence_gap_test.cpp" line="112" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.785" classname="SequenceGap" />
+    <testcase name="DuplicateEventIdIsRejectedAndNotApplied" file="tests/sequence_gap_test.cpp" line="128" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.786" classname="SequenceGap" />
+    <testcase name="SkipPolicyCountsButSuppressesAnomaly" file="tests/sequence_gap_test.cpp" line="143" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.786" classname="SequenceGap" />
+  </testsuite>
+  <testsuite name="WasBindings" tests="6" failures="0" disabled="0" skipped="0" errors="0" time="0.107" timestamp="2026-11-23T21:43:35.787">
+    <testcase name="SubmitBookAndCountersRoundTrip" file="tests/wasm_bindings_test.cpp" line="53" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.787" classname="WasBindings" />
+    <testcase name="RejectionsAreReportedNotThrown" file="tests/wasm_bindings_test.cpp" line="86" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.788" classname="WasBindings" />
+    <testcase name="TradeWindowClampsAndDoesNotOverflow" file="tests/wasm_bindings_test.cpp" line="97" status="run" result="completed" time="0." timestamp="2026-11-23T21:43:35.788" classname="WasBindings" />
+    <testcase name="BenchmarkRunsTheEngineAndReportsLatency" file="tests/wasm_bindings_test.cpp" line="119" status="run" result="completed" time="0.03" timestamp="2026-11-23T21:43:35.789" classname="WasBindings" />
+    <testcase name="ReplayCompareIsAnIndependentSecondRun" file="tests/wasm_bindings_test.cpp" line="133" status="run" result="completed" time="0.027" timestamp="2026-11-23T21:43:35.819" classname="WasBindings" />
+    <testcase name="ChaosJsonIsParseableShape" file="tests/wasm_bindings_test.cpp" line="145" status="run" result="completed" time="0.047" timestamp="2026-11-23T21:43:35.847" classname="WasBindings" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,49 @@
+name: benchmark
+
+# Manual or scheduled measurement run. Shared GitHub runners are NOT controlled
+# benchmarking machines: the numbers are useful for regression detection and
+# for the checked-in reports, not for publishing latency claims.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends cmake ninja-build g++ python3
+
+      - name: Build
+        run: |
+          cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --parallel
+
+      - name: GoogleTest suites (for the report)
+        run: ./build/ultralob_tests --gtest_output=xml:reports/gtest.xml
+
+      - name: Benchmark matrix + reports
+        run: |
+          ./build/ultralob_bench --events 1000000 --seed 2024 --workload balanced --repeats 3 \
+            --json-out reports/bench_raw_balanced_1m.json
+          ./build/ultralob_bench --events 10000000 --seed 2024 --workload balanced --repeats 1 \
+            --json-out reports/bench_raw_balanced_10m.json
+          ./build/ultralob_bench --events 1000000 --seed 2024 --workload cancel_heavy --repeats 3 \
+            --json-out reports/bench_raw_cancel_1m.json
+          ./build/ultralob_bench --events 1000000 --seed 2024 --workload burst --repeats 3 \
+            --json-out reports/bench_raw_burst_1m.json
+          ./build/ultralob_cli chaos --json-out reports/chaos_results.json
+          python3 tests/parity_test.py --events 50000
+          python3 scripts/generate_report.py >/dev/null
+
+      - name: Upload measurements
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-reports
+          path: reports/
