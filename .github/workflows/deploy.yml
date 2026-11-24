@@ -85,7 +85,7 @@ jobs:
         run: ./build-native/ultralob_cli verify --events 200000 --seed 7 --workload balanced
 
       - name: C++ / Python parity
-        run: python3 tests/parity_test.py --events 20000 --seed 7 --workload balanced
+        run: python3 tests/parity_test.py --events 20000 --seed 7 --workload balanced --bin build-native/ultralob_cli
 
       # Credentials are injected as step-scoped environment variables only, and
       # every Wrangler call below fails loudly on auth, permission or network
