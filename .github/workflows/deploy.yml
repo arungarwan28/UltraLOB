@@ -100,12 +100,21 @@ jobs:
             echo "::error::CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets must be set"
             exit 1
           fi
-          npx --yes wrangler@4 pages project list --json > /tmp/pages-projects.json
-          if node -e 'const projects = require("/tmp/pages-projects.json"); process.exit(Array.isArray(projects) && projects.some((p) => p && p.name === "ultralob") ? 0 : 1);'; then
-            echo "Cloudflare Pages project 'ultralob' already exists"
+          # `pages project create` is the authoritative existence check: it either
+          # provisions the project or answers 8000002 ("project already exists").
+          # Any other failure (auth, permission, network, quota) is re-raised.
+          output=$(mktemp)
+          if npx --yes wrangler@4 pages project create ultralob --production-branch main > "$output" 2>&1; then
+            sed -E 's/^/  /' "$output"
+            echo "Cloudflare Pages project 'ultralob' did not exist and was created (production branch: main)"
           else
-            echo "Cloudflare Pages project 'ultralob' not found — creating it with production branch main"
-            npx --yes wrangler@4 pages project create ultralob --production-branch main
+            sed -E 's/^/  /' "$output"
+            if grep -q '8000002' "$output"; then
+              echo "Cloudflare Pages project 'ultralob' already exists — continuing with the deployment"
+            else
+              echo "::error::Could not confirm or create the Cloudflare Pages project 'ultralob'"
+              exit 1
+            fi
           fi
 
       - name: Deploy to Cloudflare Pages
