@@ -5,10 +5,11 @@ name: deploy
 # Requires two repository secrets (Settings → Secrets and variables → Actions):
 #   CLOUDFLARE_API_TOKEN   — token with "Cloudflare Pages: Edit" permission
 #   CLOUDFLARE_ACCOUNT_ID  — the account id from the Cloudflare dashboard
-# and a Pages project named `ultralob` (or change --project-name).
 #
-# Nothing is deployed by this repository as checked in; the workflow only runs
-# when this branch is pushed to main or started manually.
+# Every push to `main` (and every manual dispatch) rebuilds the engine with
+# Emscripten, builds and validates the console, runs the native test/replay/
+# parity suite, ensures the `ultralob` Pages project exists and only then
+# uploads `web/dist` to the production deployment.
 
 on:
   push:
@@ -28,6 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install native toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends cmake ninja-build g++ python3
 
       - name: Install Emscripten
         uses: mymindstorm/setup-emsdk@v14
@@ -60,12 +66,49 @@ jobs:
           grep -q 'application/wasm' web/dist/_headers
           test "$(find web/dist -type f | wc -l)" -le 20000
 
-      # Both credentials reach Wrangler as environment variables only, scoped to
-      # this single step. They are never echoed, written to a file or passed as
-      # command-line arguments (which would show up in logs and process lists).
-      # Pushes to main build and validate only; publishing is manual on purpose.
+      # Same gates as the `ci` workflow: nothing is published unless the native
+      # engine, its tests, the reliability scenarios, the replay self-check and
+      # the C++/Python parity check all pass first.
+      - name: Configure native build
+        run: cmake -S . -B build-native -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build engine, tests, CLI and parity runner
+        run: cmake --build build-native --parallel
+
+      - name: GoogleTest suites
+        run: ctest --test-dir build-native --output-on-failure
+
+      - name: Reliability scenarios (fault injection)
+        run: ./build-native/ultralob_cli chaos
+
+      - name: Deterministic replay self-check
+        run: ./build-native/ultralob_cli verify --events 200000 --seed 7 --workload balanced
+
+      - name: C++ / Python parity
+        run: python3 tests/parity_test.py --events 20000 --seed 7 --workload balanced
+
+      # Credentials are injected as step-scoped environment variables only, and
+      # every Wrangler call below fails loudly on auth, permission or network
+      # problems — nothing here swallows an error.
+      - name: Ensure the Cloudflare Pages project exists
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets must be set"
+            exit 1
+          fi
+          npx --yes wrangler@4 pages project list --json > /tmp/pages-projects.json
+          if node -e 'const projects = require("/tmp/pages-projects.json"); process.exit(Array.isArray(projects) && projects.some((p) => p && p.name === "ultralob") ? 0 : 1);'; then
+            echo "Cloudflare Pages project 'ultralob' already exists"
+          else
+            echo "Cloudflare Pages project 'ultralob' not found — creating it with production branch main"
+            npx --yes wrangler@4 pages project create ultralob --production-branch main
+          fi
+
       - name: Deploy to Cloudflare Pages
-        if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
